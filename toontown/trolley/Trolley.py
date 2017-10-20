@@ -1,21 +1,21 @@
 # File: T (Python 2.4)
 #test
 #testtest
-from pandac.PandaModules import *
-from toontown.toonbase.ToonBaseGlobal import *
-from direct.gui.DirectGui import *
-from pandac.PandaModules import *
-from direct.interval.IntervalGlobal import *
-from direct.fsm import ClassicFSM, State
-from direct.fsm import State
-from direct.fsm import StateData
+from pandac.PandaModules import *                          
+from toontown.toonbase.ToonBaseGlobal import *                   // importing the files for toonbase for use in the trolley
+from direct.gui.DirectGui import *                               // importing the graphical user interface for the trolley
+from pandac.PandaModules import *                                
+from direct.interval.IntervalGlobal import *                     
+from direct.fsm import ClassicFSM, State                           
+from direct.fsm import State                                   
+from direct.fsm import StateData                                 // Saved data?
 from toontown.toontowngui import TTDialog
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from direct.directnotify import DirectNotifyGlobal
 
-class Trolley(StateData.StateData):
-    notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')
+class Trolley(StateData.StateData):                                           // defining the class 'Trolley'
+    notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
     
     def __init__(self, safeZone, parentFSM, doneEvent):
         StateData.StateData.__init__(self, doneEvent)
