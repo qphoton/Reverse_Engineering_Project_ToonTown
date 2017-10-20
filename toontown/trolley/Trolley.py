@@ -1,20 +1,31 @@
 # File: T (Python 2.4)
-#test
-#testtest
+
+'''
+Before beginning to program the file, the developer had to write in which libraries he or
+she wanted to utilize; these libraries would include support for things like
+importing the graphical user interface for the trolley, and importing the files for 
+toonbase for use in the trolley. Without these imports, graphics and making the "Trolley"
+in ToonTown work would not be possible.
+'''
+
 from pandac.PandaModules import *                          
-from toontown.toonbase.ToonBaseGlobal import *                   // importing the files for toonbase for use in the trolley
-from direct.gui.DirectGui import *                               // importing the graphical user interface for the trolley
+from toontown.toonbase.ToonBaseGlobal import *    
+from direct.gui.DirectGui import *                
 from pandac.PandaModules import *                                
 from direct.interval.IntervalGlobal import *                     
 from direct.fsm import ClassicFSM, State                           
 from direct.fsm import State                                   
-from direct.fsm import StateData                                 // Saved data?
+from direct.fsm import StateData                                 
 from toontown.toontowngui import TTDialog
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from direct.directnotify import DirectNotifyGlobal
 
-class Trolley(StateData.StateData):                                           // defining the class 'Trolley'
+'''
+in_progress
+
+'''
+class Trolley(StateData.StateData):
     notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
     
     def __init__(self, safeZone, parentFSM, doneEvent):
