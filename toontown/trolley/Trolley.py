@@ -77,6 +77,12 @@ class Trolley(StateData.StateData):
         del self.downButton
         del self.rolloverButton
 
+    '''
+    The enter() method begins by calling Finite State Machine and asks if the Toon's (player) health
+    is more than 0. If it is less than 0, then it will not permit the Toon to get on the Trolley; if it 
+    is not 0, then the Toon can begin playing by telling itself the toon is permitted ("enterTrolleyOK"). 
+    The animation sequence begins by passing the method "requestBoard".
+    '''
     
     def enter(self):
         self.fsm.enterInitialState()
