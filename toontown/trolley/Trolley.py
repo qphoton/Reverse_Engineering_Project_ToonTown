@@ -75,7 +75,7 @@ including any transitions).
                 'start'])], 'start', 'final')
         self.parentFSM = parentFSM
         
-   #COMPLETE     
+#COMPLETE     
     '''
     The load() method works by adding to the "trolley" string/state in the __init__ button textures, words, and any other
     pertinent information from phase files. This helps build the Trolley inside the game as the Town/Main playground is 
@@ -108,6 +108,7 @@ including any transitions).
         del self.upButton
         del self.downButton
         del self.rolloverButton
+        
 #COMPLETE
     '''
     The enter() method begins putting Trolley in IntialState and asks if the Toon's (player) health
