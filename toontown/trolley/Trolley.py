@@ -1,5 +1,6 @@
 # File: T (Python 2.4)
 
+#COMPLETE
 '''
 Before beginning to program the file, the developer had to write in which libraries he or
 she wanted to utilize; these libraries would include support for things like
@@ -21,6 +22,7 @@ from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from direct.directnotify import DirectNotifyGlobal
 
+
 '''
 The Trolley class is created to make an object for Trolley that can utilize various methods and parts 
 to create multiple, different instances of the Trolley. For example, if the game needed to load Trolley, it can
@@ -32,7 +34,7 @@ class Trolley(StateData.StateData):
     notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
     
 '''
-Every
+Every 
 '''
     def __init__(self, safeZone, parentFSM, doneEvent):
         StateData.StateData.__init__(self, doneEvent)
