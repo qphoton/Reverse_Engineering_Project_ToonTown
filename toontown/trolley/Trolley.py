@@ -34,11 +34,16 @@ class Trolley(StateData.StateData):
 
 #This is a class-wide variable. If needed, it can be used throughout without needing to specify something new everytime.
     notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
-    
+
+#COMPLETE    
 '''
 Panda3D, a game engine created by Disney, uses States to render different parts of 
 Trolley (with FSM). It handles this through calling the name ("Trolley"), the different states it can be ("start," "trolleyHFA,"
 "trolleyTFA," "requestBoard," et cetera), the first state ("start"), and final state ("final").
+Each class in Python can start with an "__init__" method, which is used to load the Trolley in a specific way. 
+For example, the initial method includes support for the different states that it can be loaded in; if the Toon is boarding,
+then FSM will go through the "boarding" and go through the "enterBoarding" and "exitBoarding," which FSM needs (a "start" and "stop"
+including any transitions).
 '''
     def __init__(self, safeZone, parentFSM, doneEvent):
         StateData.StateData.__init__(self, doneEvent)
