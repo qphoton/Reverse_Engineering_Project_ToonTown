@@ -74,12 +74,14 @@ including any transitions).
             State.State('final', self.enterFinal, self.exitFinal, [
                 'start'])], 'start', 'final')
         self.parentFSM = parentFSM
-
+        
+   #COMPLETE     
     '''
-    The load() function works by creating a state in FSM, getting the button textures, words, and any other
+    The load() method works by adding to the "trolley" string/state in the __init__ button textures, words, and any other
     pertinent information from phase files. This helps build the Trolley inside the game as the Town/Main playground is 
-    used by the player. To properly add this object, the load() function is used. This only works partially in creating the Trolley,
-    as it relies on outside files to properly make it.
+    used by the player. The load() method only works partially in creating the Trolley, as it relies on outside files ("phase" files)
+    to properly load it. 
+    Any phase files would include the graphics, textures, buttons, and models created for calling and loading anything into ToonTown.
     '''
     
     def load(self):
@@ -89,10 +91,12 @@ including any transitions).
         self.downButton = self.buttonModels.find('**/InventoryButtonDown')
         self.rolloverButton = self.buttonModels.find('**/InventoryButtonRollover')
 
+ #COMPLETE   
     '''
-    The unload() method works by getting the Trolley attribute of a Finite State Machine, and then 
-    removes piece by piece of each aspect of the Trolley; it deletes the state of FSM, and the various components 
-    (types of buttons: up, down, rollover). To properly remove this object from the game, the unload method is used.
+    The unload() method works by getting the Trolley string/state of a FSM, and then 
+    removes piece by piece of each aspect of the Trolley; it deletes all parts of the State (FSM) it is currently in (e.g.: "boarding," 
+    "boarded," "trolleyLeaving," et cetera), and the various components of the Trolley model (types of buttons: up, down, rollover).
+    To properly remove this Trolley from the game, the unload method is used.
     '''
     
     def unload(self):
@@ -104,12 +108,11 @@ including any transitions).
         del self.upButton
         del self.downButton
         del self.rolloverButton
-
+#COMPLETE
     '''
-    The enter() method begins by calling Finite State Machine and asks if the Toon's (player) health
+    The enter() method begins putting Trolley in IntialState and asks if the Toon's (player) health
     is more than 0. If it is less than 0, then it will not permit the Toon to get on the Trolley; if it 
-    is not 0, then the Toon can begin playing by telling itself the toon is permitted ("enterTrolleyOK"). 
-    The animation sequence begins by passing the method "requestBoard".
+    is more than 0 (i.e., player is healthy), then the Toon can begin playing by telling itself the toon is permitted ("enterTrolleyOK"). 
     '''
     
     def enter(self):
