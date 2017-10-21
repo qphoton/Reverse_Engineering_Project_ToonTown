@@ -4,7 +4,7 @@
 Before beginning to program the file, the developer had to write in which libraries he or
 she wanted to utilize; these libraries would include support for things like
 importing the graphical user interface for the trolley, and importing the files for 
-toonbase for use in the trolley. Without these imports, graphics and making the "Trolley"
+toonbase for use in the trolley. Without these imports, states, graphics and making the "Trolley"
 in ToonTown work would not be possible.
 '''
 
@@ -22,12 +22,18 @@ from toontown.toonbase import TTLocalizer
 from direct.directnotify import DirectNotifyGlobal
 
 '''
-in_progress
-
+The Trolley class is created to make an object for Trolley that can utilize various methods and parts 
+to create multiple, different instances of the Trolley. For example, if the game needed to load Trolley, it can
+call Trolley and load various states of it to make the Trolley work. 
 '''
 class Trolley(StateData.StateData):
+
+#This is a class-wide variable. If needed, it can be used throughout without needing to specify something new everytime.
     notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
     
+'''
+Every
+'''
     def __init__(self, safeZone, parentFSM, doneEvent):
         StateData.StateData.__init__(self, doneEvent)
         self.fsm = ClassicFSM.ClassicFSM('Trolley', [
@@ -58,6 +64,12 @@ class Trolley(StateData.StateData):
                 'start'])], 'start', 'final')
         self.parentFSM = parentFSM
 
+    '''
+    The load() function works by creating a state in FSM, getting the button textures, words, and any other
+    pertinent information from phase files. This helps build the Trolley inside the game as the Town/Main playground is 
+    used by the player. To properly add this object, the load() function is used. This only works partially in creating the Trolley,
+    as it relies on outside files to properly make it.
+    '''
     
     def load(self):
         self.parentFSM.getStateNamed('trolley').addChild(self.fsm)
@@ -66,6 +78,11 @@ class Trolley(StateData.StateData):
         self.downButton = self.buttonModels.find('**/InventoryButtonDown')
         self.rolloverButton = self.buttonModels.find('**/InventoryButtonRollover')
 
+    '''
+    The unload() method works by getting the Trolley attribute of a Finite State Machine, and then 
+    removes piece by piece of each aspect of the Trolley; it deletes the state of FSM, and the various components 
+    (types of buttons: up, down, rollover). To properly remove this object from the game, the unload method is used.
+    '''
     
     def unload(self):
         self.parentFSM.getStateNamed('trolley').removeChild(self.fsm)
