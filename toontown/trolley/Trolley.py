@@ -4,7 +4,7 @@
 '''
 Before beginning to program the file, the developer had to write in which libraries he or
 she wanted to utilize; these libraries would include support for things like
-importing the graphical user interface for the trolley, and importing the files for 
+importing  graphical user interface for the trolley, and importing the files for 
 toonbase for use in the trolley. Without these imports, states, graphics and making the "Trolley"
 in ToonTown work would not be possible.
 '''
@@ -22,19 +22,23 @@ from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 from direct.directnotify import DirectNotifyGlobal
 
+#COMPLETE
+'''
+The Trolley class is created to make an object for Trolley that can utilize various methods, parts, and data 
+to create multiple different instances of the Trolley. For example, if the game needed to load Trolley, it can
+call Trolley and load different various states of it through method attributes. The Trolley class inherits the main class StateData
+in the FSM file to handle different States.
+'''
 
-'''
-The Trolley class is created to make an object for Trolley that can utilize various methods and parts 
-to create multiple, different instances of the Trolley. For example, if the game needed to load Trolley, it can
-call Trolley and load various states of it to make the Trolley work. 
-'''
 class Trolley(StateData.StateData):
 
 #This is a class-wide variable. If needed, it can be used throughout without needing to specify something new everytime.
     notify = DirectNotifyGlobal.directNotify.newCategory('Trolley')           
     
 '''
-Every 
+Panda3D, a game engine created by Disney, uses States to render different parts of 
+Trolley (with FSM). It handles this through calling the name ("Trolley"), the different states it can be ("start," "trolleyHFA,"
+"trolleyTFA," "requestBoard," et cetera), the first state ("start"), and final state ("final").
 '''
     def __init__(self, safeZone, parentFSM, doneEvent):
         StateData.StateData.__init__(self, doneEvent)
